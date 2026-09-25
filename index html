@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quick Haul | Junk Removal</title>
+
+<meta name="description" content="Quick Haul helps customers request junk removal and connect with local providers.">
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070a0c;
+  color:#fff;
+  line-height:1.5;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(7,10,12,.95);
+  border-bottom:1px solid #263029;
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  font-style:italic;
+}
+
+.logo span{
+  color:#69f36a;
+}
+
+nav{
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  font-weight:700;
+  color:#eee;
+}
+
+nav a:hover{
+  color:#69f36a;
+}
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:95px 20px 80px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.green{
+  color:#69f36a;
+}
+
+.eyebrow{
+  color:#69f36a;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+h1{
+  font-size:clamp(45px,7vw,78px);
+  line-height:.95;
+  margin:12px 0 20px;
+  letter-spacing:-3px;
+}
+
+.hero p{
+  font-size:18px;
+  color:#a5b0aa;
+  max-width:650px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 20px;
+  border-radius:11px;
+  font-weight:900;
+  cursor:pointer;
+  border:none;
+}
+
+.primary{
+  background:#69f36a;
+  color:#041006;
+}
+
+.secondary{
+  background:#10161a;
+  border:1px solid #263029;
+  color:#fff;
+}
+
+.card{
+  background:#10161a;
+  border:1px solid #263029;
+  border-radius:22px;
+  padding:26px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.fake-logo{
+  font-size:45px;
+  font-weight:900;
+  font-style:italic;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:18px;
+}
+
+.feature{
+  padding:14px;
+  border:1px solid #263029;
+  border-radius:13px;
+  background:#0b1012;
+}
+
+.feature b{
+  display:block;
+}
+
+.feature span{
+  font-size:12px;
+  color:#a5b0aa;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:45px 20px;
+}
+
+h2{
+  font-size:36px;
+  margin:0 0 10px;
+}
+
+.sub{
+  color:#a5b0aa;
+  margin-bottom:25px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.step{
+  background:#10161a;
+  border:1px solid #263029;
+  padding:22px;
+  border-radius:18px;
+}
+
+.number{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#69f36a;
+  color:#041006;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #263029;
+  background:#080c0e;
+  color:#fff;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#69f36a;
+}
+
+textarea{
+  min-height:125px;
+  resize:vertical;
+}
+
+input[type=file]{
+  padding:9px;
+}
+
+.check{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-top:4px;
+}
+
+.check input{
+  width:auto;
+  margin-top:5px;
+}
+
+.small{
+  font-size:12px;
+  color:#87928c;
+}
+
+form .btn{
+  width:100%;
+  font-size:16px;
+}
+
+.faq{
+  display:grid;
+  gap:10px;
+}
+
+details{
+  background:#10161a;
+  border:1px solid #263029;
+  border-radius:14px;
+  padding:16px;
+}
+
+summary{
+  font-weight:900;
+  cursor:pointer;
+}
+
+details p{
+  color:#a5b0aa;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+footer{
+  border-top:1px solid #263029;
+  margin-top:30px;
+  padding:40px 20px;
+  color:#829087;
+}
+
+@media(max-width:800px){
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:60px;
+  }
+
+  .steps,
+  .features,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  nav{
+    display:none;
+  }
+
+  h1{
+    letter-spacing:-2px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="#home" class="logo">
+QUICK <span>HAUL</span>
+</a>
+
+<nav>
+<a href="#how">How It Works</a>
+<a href="#quote">Get a Quote</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<main id="home">
+
+
+<div class="hero">
+
+<div>
+
+<div class="eyebrow">
+JUNK REMOVAL CONNECTIONS
+</div>
+
+<h1>
+Got junk?<br>
+<span class="green">Quick Haul.</span>
+</h1>
+
+<p>
+Tell us what needs to go, where you are, and when you need it.
+We'll organize your request and connect you with a participating
+local junk-removal provider.
+</p>
+
+<div class="buttons">
+
+<a href="#quote" class="btn primary">
+Get a Free Quote
+</a>
+
+<a href="#how" class="btn secondary">
+How It Works
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="fake-logo">
+QUICK <span class="green">HAUL</span>
+</div>
+
+<p class="sub">
+Simple request. Local provider. Faster follow-up.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<b>1</b>
+<span>Send request</span>
+</div>
+
+<div class="feature">
+<b>2</b>
+<span>Get matched</span>
+</div>
+
+<div class="feature">
+<b>3</b>
+<span>Schedule</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<section id="how">
+
+<h2>How It Works</h2>
+
+<p class="sub">
+Quick Haul organizes the request. The participating provider
+handles final pricing and scheduling.
+</p>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="number">1</div>
+
+<h3>Tell Us About The Job</h3>
+
+<p class="sub">
+Tell us what needs to be removed, where you are,
+and when you need it.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">2</div>
+
+<h3>We Route The Request</h3>
+
+<p class="sub">
+Your request can be sent to a participating local provider.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">3</div>
+
+<h3>Get Your Quote</h3>
+
+<p class="sub">
+The provider contacts you about the price and schedule.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="quote">
+
+<h2>Request A Quote</h2>
+
+<p class="sub">
+Fill this out and your request will be sent through Formspree.
+</p>
+
+
+<div class="card">
+
+
+<form
+action="https://formspree.io/f/xppwloqn"
+method="POST"
+enctype="multipart/form-data"
+>
+
+<input
+type="hidden"
+name="_subject"
+value="New Quick Haul Customer Request"
+>
+
+<input
+type="hidden"
+name="_replyto"
+id="replyto"
+value=""
+>
+
+
+<div class="form-grid">
+
+
+<div>
+
+<label for="name">
+Full Name
+</label>
+
+<input
+id="name"
+name="name"
+type="text"
+placeholder="Your name"
+required
+>
+
+</div>
+
+
+<div>
+
+<label for="email">
+Email
+</label>
+
+<input
+id="email"
+name="email"
+type="email"
+placeholder="you@example.com"
+required
+>
+
+</div>
+
+
+<div>
+
+<label for="phone">
+Phone
+</label>
+
+<input
+id="phone"
+name="phone"
+type="tel"
+placeholder="(555) 555-5555"
+required
+>
+
+</div>
+
+
+<div>
+
+<label for="zip">
+ZIP Code
+</label>
+
+<input
+id="zip"
+name="zip"
+inputmode="numeric"
+placeholder="33543"
+required
+>
+
+</div>
+
+
+<div>
+
+<label for="timing">
+When Do You Need It?
+</label>
+
+<select
+id="timing"
+name="timing"
+required
+>
+
+<option value="">
+Choose one
+</option>
+
+<option>
+ASAP
+</option>
+
+<option>
+Within 2–3 days
+</option>
+
+<option>
+This week
+</option>
+
+<option>
+Next week
+</option>
+
+<option>
+Flexible
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="size">
+Approximate Job Size
+</label>
+
+<select
+id="size"
+name="job_size"
+required
+>
+
+<option value="">
+Choose one
+</option>
+
+<option>
+1–2 items
+</option>
+
+<option>
+Small load
+</option>
+
+<option>
+About half a truck
+</option>
+
+<option>
+Full truck / large cleanout
+</option>
+
+<option>
+Not sure
+</option>
+
+</select>
+
+</div>
+
+
+<div class="full">
+
+<label for="address">
+Pickup Address / Area
+</label>
+
+<input
+id="address"
+name="pickup_area"
+placeholder="Street, city, or neighborhood"
+required
+>
+
+</div>
+
+
+<div class="full">
+
+<label for="items">
+What Needs To Be Removed?
+</label>
+
+<textarea
+id="items"
+name="items"
+placeholder="Example: couch, mattress, old desk, boxes..."
+required
+></textarea>
+
+</div>
+
+
+<div class="full">
+
+<label for="photos">
+Photos (Optional)
+</label>
+
+<input
+id="photos"
+name="photos"
+type="file"
+accept="image/png,image/jpeg,image/webp"
+multiple
+>
+
+<p class="small">
+Photos can help a provider understand the job.
+</p>
+
+</div>
+
+
+<div class="full">
+
+<label for="notes">
+Anything Else?
+</label>
+
+<textarea
+id="notes"
+name="notes"
+placeholder="Stairs, heavy items, gate code, preferred time, etc."
+></textarea>
+
+</div>
+
+
+<div class="full check">
+
+<input
+type="checkbox"
+id="consent"
+name="consent"
+value="Customer agreed"
+required
+>
+
+<label for="consent" class="small">
+
+I agree that my information may be shared with a participating
+junk-removal provider so they can contact me about this request.
+Final pricing and scheduling are handled by the provider.
+
+</label>
+
+</div>
+
+
+<div class="full">
+
+<button
+type="submit"
+class="btn primary"
+>
+Send My Request
+</button>
+
+</div>
+
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<section id="faq">
+
+<h2>FAQ</h2>
+
+<p class="sub">
+Questions before sending a request?
+</p>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+Do I pay Quick Haul?
+</summary>
+
+<p>
+Quick Haul is the connection platform.
+The participating provider handles the actual removal service
+and final price.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+How much does junk removal cost?
+</summary>
+
+<p>
+It depends on the amount and type of junk, location,
+access, and the provider. The provider gives the final quote.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I send pictures?
+</summary>
+
+<p>
+Yes. Photos are optional and can help the provider understand
+the job before contacting you.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Do you guarantee a provider?
+</summary>
+
+<p>
+No. A request is an inquiry, not a guaranteed booking.
+Availability depends on participating providers.
+</p>
+
+</details>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact Quick Haul</h2>
+
+<p class="sub">
+Need help or interested in becoming a provider?
+</p>
+
+
+<div class="contact-grid">
+
+
+<div class="card">
+
+<h3>Customers</h3>
+
+<p class="sub">
+Have a junk-removal request?
+Send your information through the quote form.
+</p>
+
+<a
+href="#quote"
+class="btn primary"
+>
+Get A Quote
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>Providers</h3>
+
+<p class="sub">
+Interested in working with Quick Haul?
+Send your information through the form.
+</p>
+
+<a
+href="#quote"
+class="btn secondary"
+>
+Contact Quick Haul
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div style="max-width:1100px;margin:auto">
+
+<strong>
+QUICK <span class="green">HAUL</span>
+</strong>
+
+<p>
+Quick Haul connects customers with participating
+local junk-removal providers.
+Final pricing, availability, and scheduling are determined
+by the provider.
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+document
+.getElementById("email")
+.addEventListener("input",function(){
+
+document
+.getElementById("replyto")
+.value=this.value;
+
+});
+
+</script>
+
+</body>
+</html>
