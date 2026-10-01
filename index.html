@@ -927,16 +927,72 @@ by the provider.
 
 </div>
 
+<style>
+.social-footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid var(--line);
+  margin-top: 34px;
+}
+
+.social-footer p {
+  margin-bottom: 18px;
+  color: #829087;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+  border-color: #22c55e;
+}
+
+.social-links svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+</style>
+
 <footer class="social-footer">
   <p>Find us on social media</p>
 
   <div class="social-links">
+
     <a href="https://www.instagram.com/quickhaul5/" target="_blank" rel="noopener">
-      📷 Instagram — @quickhaul5
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17.5" cy="6.5" r="1" />
+      </svg>
+      @quickhaul5
     </a>
 
     <a href="https://www.facebook.com/profile.php?id=61594693979061" target="_blank" rel="noopener">
-      f&nbsp; Facebook — QuickHaul
+      <svg viewBox="0 0 24 24">
+        <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9c0-.7.3-1 1-1z"/>
+      </svg>
+      QuickHaul
     </a>
+
   </div>
 </footer>
